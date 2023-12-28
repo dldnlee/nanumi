@@ -1,15 +1,7 @@
 import food from "../assets/icons/chat.png";
+import Listing from "../components/Listing";
+import CategoryButton from "../components/buttons/CategoryButton";
 
-function CategoryButton(props) {
-  return(
-    <li className="text-center">
-      <a href="/" className=" w-[55px] h-[55px] flex justify-center items-center rounded-lg border-2 border-black border-solid active:bg-slate-800" >
-        <img src={props.image} alt={props.alt} className="w-[40px] h-[40px]"/>
-      </a>
-      <p>{props.desc}</p>
-    </li>
-  )
-}
 
 function ListItems() {
   return(
@@ -33,27 +25,70 @@ function SearchBar() {
   )
 }
 
-function Item() {
+function TopSection() {
   return(
-    <div>
-      
+    <div className="bg-red-400 w-full px-[40px] py-5 flex justify-center flex-col items-center gap-6">
+      <SearchBar />
+      <ListItems />
     </div>
   )
 }
 
 function ItemList() {
-  return(
-    <div>
+  const listOfItems = [
+    {
+      id: 1,
+      name: "니콘 카메라",
+      location: "목동동"
+    },
+    {
+      id: 2,
+      name: "게이밍 의자",
+      location: "야당동"
+    },
+    {
+      id: 3,
+      name: "2015년 맥북",
+      location: "와동동"
+    },
+    {
+      id: 4,
+      name: "니콘 카메라",
+      location: "헤이리"
+    },
+    {
+      id: 5,
+      name: "니콘 카메라",
+      location: "마포구"
+    },
+    {
+      id: 6,
+      name: "니콘 카메라",
+      location: "서대문구"
+    },
+    {
+      id: 7,
+      name: "니콘 카메라",
+      location: "건대입구"
+    },
+  ];
 
-    </div>
-  )
+  const newItems = listOfItems.map(item => {
+    return (
+      <div>
+        <Listing id={item.id} name={item.name} location={item.location} />
+      </div>
+    )
+  })
+
+  return(newItems);
 }
 
 export default function HomePage(){
   return(
-    <div className="flex flex-col gap-[40px] bg-blue-300 justify-center items-center py-[40px] px-[40px]">
-      <SearchBar />
-      <ListItems />
+    <div>
+      <TopSection />
+      <ItemList />
     </div>
   )
 }

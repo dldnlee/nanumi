@@ -7,7 +7,7 @@ import setting from '../assets/icons/gear.png';
 
 export default function NavBar() {
   return (
-    <nav className="navbar-container fixed  w-full bottom-0 border-t-2">
+    <nav className="navbar-container sticky  w-full bottom-0 border-t-2 bg-white">
       <ul className="flex justify-between px-4 py-2">
         <li><a href="/"><img src={home} alt="Home Icon" className='w-[40px]'/></a></li>
         <li><a href="/"><img src={map} alt="Map Icon" className='w-[40px]'/></a></li>
